@@ -51,7 +51,7 @@
 						<u><b>Rules :</b></u> <c:out value="${ room.rules }"/>
 					</div>
 					<h3 class="subtitle is-5">Users in Room</h3>
-					<c:forEach items="${room.purpleusers}" var="pu">
+					<c:forEach items="${room.Hayasakuusers}" var="pu">
 						<c:out value="${pu.username}" />
 					</c:forEach>
 				</div>
@@ -70,7 +70,7 @@
 							<span class="panel-icon">
 								<c:if test="${r.official}"><span title="Official Room" class="icon is-right"><i class="fas fa-star"></i></span></c:if>
 							</span>
-							<c:out value="${r.name}" /> (<c:out value="${r.purpleusers.size()}" />)
+							<c:out value="${r.name}" /> (<c:out value="${r.Hayasakuusers.size()}" />)
 						</a>
 					</c:forEach>
 				</article>
@@ -94,7 +94,7 @@
 			</div>
 			<div id="search-content" class="menu-content container is-hidden">
 				<h3 class="subtitle is-5">Search</h3>
-				<c:forEach items="${room.purpleusers}" var="pu">
+				<c:forEach items="${room.Hayasakuusers}" var="pu">
 					<c:out value="${pu.username}" />
 				</c:forEach>
 			</div>

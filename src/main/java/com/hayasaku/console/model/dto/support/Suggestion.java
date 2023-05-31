@@ -21,7 +21,7 @@ import lombok.Data;
 
 /**
  * Entity Suggestion pour la gestion de Tickets
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Data

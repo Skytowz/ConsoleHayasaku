@@ -7,7 +7,7 @@ import com.hayasaku.console.model.dto.tags.Tag;
 
 /**
  * Repository CRUD pour la gestion en base des tags
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Repository

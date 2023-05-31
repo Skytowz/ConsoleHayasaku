@@ -8,9 +8,9 @@
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-		<file>purplenpink.log</file>
+		<file>Hayasaku.log</file>
 	    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-	        <fileNamePattern>logs/purplenpink-%d{dd-MM-yyyy}.log</fileNamePattern>
+	        <fileNamePattern>logs/Hayasaku-%d{dd-MM-yyyy}.log</fileNamePattern>
 	        <totalSizeCap>3GB</totalSizeCap>
 	    </rollingPolicy>
         <append>true</append>

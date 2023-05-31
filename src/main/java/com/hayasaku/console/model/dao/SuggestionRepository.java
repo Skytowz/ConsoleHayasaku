@@ -10,7 +10,7 @@ import com.hayasaku.console.model.dto.support.SuggestionCategory;
 
 /**
  * Repository CRUD pour la gestion en base des tickets
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Repository

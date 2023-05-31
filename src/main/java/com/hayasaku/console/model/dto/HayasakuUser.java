@@ -27,14 +27,14 @@ import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 /**
- * Entity PurpleUser représentant les utilisateurs
- * @author Quentin "Ruendan" DUBOIS
+ * Entity HayasakuUser représentant les utilisateurs
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Data
 @Entity
 @EqualsAndHashCode(exclude = "friends")
-public class PurpleUser implements UserDetails, Serializable {
+public class HayasakuUser implements UserDetails, Serializable {
 	/**
 	 * 
 	 */
@@ -75,14 +75,14 @@ public class PurpleUser implements UserDetails, Serializable {
 
 	@ToString.Exclude
 	@ManyToMany
-	private List<PurpleUser> friends;
+	private List<HayasakuUser> friends;
 	
 	@ToString.Exclude
 	@ManyToMany
 	private List<Tag> tags;
 	
-	@ElementCollection(targetClass = PurpleRole.class, fetch = FetchType.EAGER)
+	@ElementCollection(targetClass = HayasakuRole.class, fetch = FetchType.EAGER)
 	@CollectionTable
 	@Enumerated(EnumType.STRING)
-	private Collection<PurpleRole> authorities;
+	private Collection<HayasakuRole> authorities;
 }

@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="style/pnp.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
-<title>Purple and Pink - Profile</title>
+<title>Hayasaku and Pink - Profile</title>
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 <script defer src="scripts/profile.js"></script>
 </head>
@@ -48,7 +48,7 @@
 							</ul>
 						</div>
 						<c:forEach var="tag" items="${ tagCategorie.value }">
-							<article class="purpletag message is-small is-<c:out value="${ tagCategorie.key.color }"/>">
+							<article class="Hayasakutag message is-small is-<c:out value="${ tagCategorie.key.color }"/>">
 								<div class="message-header"><c:out value="${ tag.name }"/></div>
 								<div class="message-body">
 									<p class="buttons">

@@ -9,7 +9,7 @@
 	href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta charset="UTF-8">
-<title>Purple and Pink - Login</title>
+<title>Hayasaku and Pink - Login</title>
 <script defer
 	src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 </head>

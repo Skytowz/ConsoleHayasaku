@@ -10,7 +10,7 @@ import com.hayasaku.console.model.dto.Room;
 
 /**
  * Repository CRUD pour la gestion en base de rooms
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 public interface RoomRepository extends CrudRepository<Room, Long>{

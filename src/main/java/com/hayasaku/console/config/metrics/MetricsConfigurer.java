@@ -8,7 +8,7 @@ import io.micrometer.core.instrument.MeterRegistry;
 
 /**
  * Classe de configuration pour les metrics prometheus, afin de permettre l'annotation @Timed
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Configuration

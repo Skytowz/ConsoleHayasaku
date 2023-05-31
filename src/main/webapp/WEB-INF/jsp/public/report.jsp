@@ -15,7 +15,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <meta charset="UTF-8">
-<title>Purple and Pink - Report</title>
+<title>Hayasaku and Pink - Report</title>
 </head>
 <body>
 	<jsp:include page="/navbar"></jsp:include>

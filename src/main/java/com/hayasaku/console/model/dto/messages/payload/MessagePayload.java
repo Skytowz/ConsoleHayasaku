@@ -11,7 +11,7 @@ import lombok.Data;
 
 /**
  * DTO pour l'envoi et la reception de messages
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Data

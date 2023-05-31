@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 /**
  * Controleurs pour le retour à l'accueil
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Controller

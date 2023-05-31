@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.hayasaku.console.model.dto.PurpleUser;
+import com.hayasaku.console.model.dto.HayasakuUser;
 import com.hayasaku.console.model.dto.Room;
 import com.hayasaku.console.model.service.room.RoomService;
-import com.hayasaku.console.model.service.user.PurpleUserService;
+import com.hayasaku.console.model.service.user.HayasakuUserService;
 
 /**
  * Controleurs pour la gestion des rooms
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Controller
@@ -26,7 +26,7 @@ public class RoomController {
 	@Autowired
 	private RoomService roomService;
 	@Autowired
-	private PurpleUserService userService;
+	private HayasakuUserService userService;
 
 	@GetMapping(value = { "/rooms", "/rooms/" })
 	public String getRooms(@RequestParam(required = false, defaultValue = "0") int page, Model model,
@@ -38,7 +38,7 @@ public class RoomController {
 
 	@GetMapping(value = { "/room", "/room/" })
 	public String getRoom(Model model, @RequestParam(required = true) String roomname,
-			RedirectAttributes redirectAttributes, @AuthenticationPrincipal PurpleUser user) {
+			RedirectAttributes redirectAttributes, @AuthenticationPrincipal HayasakuUser user) {
 		Room room = roomService.findByName(roomname);
 		model.addAttribute("room", room);
 		user.setCurrentRoom(room);

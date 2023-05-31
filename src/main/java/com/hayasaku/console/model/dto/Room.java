@@ -17,12 +17,12 @@ import lombok.EqualsAndHashCode;
 
 /**
  * Entity Room représentant des Salles dans lesquelles on trouve des utilisateurs
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Data
 @Entity
-@EqualsAndHashCode(exclude = "purpleusers")
+@EqualsAndHashCode(exclude = "Hayasakuusers")
 public class Room implements Serializable{
 	
 	/**
@@ -41,5 +41,5 @@ public class Room implements Serializable{
 	private boolean official;
 	
 	@OneToMany(mappedBy = "currentRoom",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-	private List<PurpleUser> purpleusers;
+	private List<HayasakuUser> Hayasakuusers;
 }

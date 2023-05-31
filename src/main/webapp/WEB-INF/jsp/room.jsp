@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="style/room.css">
 <link rel="stylesheet" href="style/pnp.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Purple and Pink - <c:out value="${room.name}" /></title>
+<title>Hayasaku and Pink - <c:out value="${room.name}" /></title>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js
 

@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * SuggestionDTO pour la reception de Ticket
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Data

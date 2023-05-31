@@ -14,7 +14,7 @@ import com.hayasaku.console.model.service.suggestion.SuggestionService;
 
 /**
  * Controleurs pour la gestion de tickets
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Controller

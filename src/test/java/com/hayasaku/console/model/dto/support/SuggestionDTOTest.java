@@ -1,4 +1,4 @@
-package com.ruendan.pnp.model.dto.support;
+package com.hayasaku.console.model.dto.support;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;

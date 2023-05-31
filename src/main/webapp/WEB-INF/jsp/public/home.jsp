@@ -13,7 +13,7 @@
 
 <meta charset="UTF-8">
 <security:authorize var="loggedIn" access="isAuthenticated()" />
-<title>Purple and Pink - Home</title>
+<title>Hayasaku and Pink - Home</title>
 </head>
 <body>
 	<jsp:include page="/navbar"></jsp:include>
@@ -21,7 +21,7 @@
 		<jsp:include page="/menu"></jsp:include>
 		<main class="column container-fluid is-max-widescreen is-fullheight is-fluid ">
 			<section class="container">
-				<h2 class="title is-2">Purple and Pink</h2>
+				<h2 class="title is-2">Hayasaku and Pink</h2>
 				<c:if test="${not empty param.error}">
 					<div class="notification is-danger is-light">This Username /
 						Password combinaison do not exist.</div>
@@ -95,7 +95,7 @@
 		<div class="content has-text-centered">
 			<div class="columns">
 				<div class="column">
-					<p><strong>Purple And Pink</strong> by Ruendan <span class="icon is-small"><img src="https://flagicons.lipis.dev/flags/4x3/fr.svg"></span> ! The source code is licensed by nothing yet.</p>
+					<p><strong>Hayasaku And Pink</strong> by Ruendan <span class="icon is-small"><img src="https://flagicons.lipis.dev/flags/4x3/fr.svg"></span> ! The source code is licensed by nothing yet.</p>
 				</div>
 				<div class="column is-2">
 					<figure class="image"><img class="is-pulled-right" src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24"></figure>

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * Controleurs pour la redirections vers les liens de la navbar
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Controller

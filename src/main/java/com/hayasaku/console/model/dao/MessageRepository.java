@@ -7,7 +7,7 @@ import com.hayasaku.console.model.dto.messages.Message;
 
 /**
  * Repository CRUD pour la gestion en base de messages
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Repository

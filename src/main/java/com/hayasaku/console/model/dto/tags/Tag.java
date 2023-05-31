@@ -11,7 +11,7 @@ import lombok.Data;
 
 /**
  * Entity Tag
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Data

@@ -7,13 +7,13 @@ INSERT INTO room(name) VALUES ('c');
 INSERT INTO room(name) VALUES ('d');
 INSERT INTO room(name) VALUES ('<script>alert("G reussi a Injecter mon script parce que c pas secu")</script>');
 
-INSERT INTO purple_user(username, password, email) VALUES ('rurue','{noop}rurue','rurue@rurue.com');
-INSERT INTO purple_user(username, password, email) VALUES ('ruru','{noop}ruru','ruru@ruru.com');
+INSERT INTO Hayasaku_user(username, password, email) VALUES ('rurue','{noop}rurue','rurue@rurue.com');
+INSERT INTO Hayasaku_user(username, password, email) VALUES ('ruru','{noop}ruru','ruru@ruru.com');
 
-INSERT INTO PURPLE_USER_FRIENDS(purple_user_id, friends_id) VALUES (1, 2);
-INSERT INTO PURPLE_USER_FRIENDS(purple_user_id, friends_id) VALUES (2, 1);
+INSERT INTO Hayasaku_USER_FRIENDS(Hayasaku_user_id, friends_id) VALUES (1, 2);
+INSERT INTO Hayasaku_USER_FRIENDS(Hayasaku_user_id, friends_id) VALUES (2, 1);
 
-INSERT INTO purple_user_authorities(purple_user_id, authorities) VALUES (1, 'ADMIN');
+INSERT INTO Hayasaku_user_authorities(Hayasaku_user_id, authorities) VALUES (1, 'ADMIN');
 
 INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
 INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'FEATURE', 'Y a un bug', 'Alors y a un bug quand on...');

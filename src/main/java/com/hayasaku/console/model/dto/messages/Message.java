@@ -2,7 +2,7 @@ package com.hayasaku.console.model.dto.messages;
 
 import java.time.LocalDate;
 
-import com.hayasaku.console.model.dto.PurpleUser;
+import com.hayasaku.console.model.dto.HayasakuUser;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,7 +13,7 @@ import lombok.Data;
 
 /**
  * Entity Messages
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Entity
@@ -24,7 +24,7 @@ public abstract class Message {
 	private Long id;
 	
 	@ManyToOne
-	private PurpleUser sender;
+	private HayasakuUser sender;
 	private String content;
 	private LocalDate date;
 	private MessageStatus status;

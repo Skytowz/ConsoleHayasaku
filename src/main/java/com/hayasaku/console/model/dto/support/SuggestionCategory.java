@@ -2,7 +2,7 @@ package com.hayasaku.console.model.dto.support;
 
 /**
  * Enum SuggestionCategory
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 public enum SuggestionCategory {

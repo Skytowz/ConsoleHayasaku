@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * Entity MessagesRoom
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Data

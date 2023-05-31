@@ -1,4 +1,4 @@
-package com.ruendan.pnp.model.service.suggestion;
+package com.hayasaku.console.model.service.suggestion;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;

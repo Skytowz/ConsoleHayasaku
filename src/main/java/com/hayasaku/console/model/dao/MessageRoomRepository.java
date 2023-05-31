@@ -10,7 +10,7 @@ import com.hayasaku.console.model.dto.messages.payload.MessageRoomPayload;
 
 /**
  * Repository CRUD pour la gestion en base des Messages envoyés dans des rooms
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Repository

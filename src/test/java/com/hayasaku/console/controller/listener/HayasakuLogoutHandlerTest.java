@@ -1,4 +1,4 @@
-package com.ruendan.pnp.controller.listener;
+package com.hayasaku.console.controller.listener;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.times;
@@ -14,38 +14,38 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Description;
 import org.springframework.security.core.Authentication;
 
-import com.hayasaku.console.controller.listener.PurpleLogoutHandler;
-import com.hayasaku.console.model.dto.PurpleUser;
-import com.hayasaku.console.model.service.user.PurpleUserService;
+import com.hayasaku.console.controller.listener.HayasakuLogoutHandler;
+import com.hayasaku.console.model.dto.HayasakuUser;
+import com.hayasaku.console.model.service.user.HayasakuUserService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 @SpringBootTest
-class PurpleLogoutHandlerTest {
+class HayasakuLogoutHandlerTest {
 
 	@MockBean
-	private PurpleUserService purpleUserService;
+	private HayasakuUserService HayasakuUserService;
 	@MockBean
 	private Log logger;
 	
     @InjectMocks
-	private PurpleLogoutHandler purpleLogoutHandler;
+	private HayasakuLogoutHandler HayasakuLogoutHandler;
     
 	@Test
-	@Description("PurpleLogoutHandler#logout")
+	@Description("HayasakuLogoutHandler#logout")
 	void logout() {
-		PurpleUser purpleUser = new PurpleUser();
+		HayasakuUser HayasakuUser = new HayasakuUser();
 		HttpServletRequest request = mock(HttpServletRequest.class);
 		HttpServletResponse response = mock(HttpServletResponse.class);
 		Authentication auth = mock(Authentication.class);
-		when(auth.getPrincipal()).thenReturn(purpleUser);
+		when(auth.getPrincipal()).thenReturn(HayasakuUser);
 		
 		MockitoAnnotations.openMocks(this);
 
-		purpleLogoutHandler.logout(request, response, auth);
+		HayasakuLogoutHandler.logout(request, response, auth);
 		
-		verify(purpleUserService, times(1)).disconnect(purpleUser);
+		verify(HayasakuUserService, times(1)).disconnect(HayasakuUser);
 	}
 
 }

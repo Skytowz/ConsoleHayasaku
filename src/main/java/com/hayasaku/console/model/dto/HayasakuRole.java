@@ -5,18 +5,18 @@ import java.io.Serializable;
 import org.springframework.security.core.GrantedAuthority;
 
 /**
- * Class PurpleRole pour renseigner les roles d'un utilisateur
- * @author Quentin "Ruendan" DUBOIS
+ * Class HayasakuRole pour renseigner les roles d'un utilisateur
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
-public enum PurpleRole implements GrantedAuthority, Serializable {
+public enum HayasakuRole implements GrantedAuthority, Serializable {
 	USER("USER"), 
 	ADMIN("ADMIN"), 
 	DEV("DEV");
 	
 	private String authority;
 
-	private PurpleRole(String authority) {
+	private HayasakuRole(String authority) {
 		this.authority = authority;
 	}
 

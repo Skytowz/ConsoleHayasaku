@@ -15,13 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.hayasaku.console.model.dao.PurpleUserRepository;
-import com.hayasaku.console.model.dto.PurpleRole;
-import com.hayasaku.console.model.dto.PurpleUser;
+import com.hayasaku.console.model.dao.HayasakuUserRepository;
+import com.hayasaku.console.model.dto.HayasakuRole;
+import com.hayasaku.console.model.dto.HayasakuUser;
 
 /**
  * Controleurs pour l'inscription au site
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Controller
@@ -29,7 +29,7 @@ import com.hayasaku.console.model.dto.PurpleUser;
 public class RegisterController {
 	
 	@Autowired
-	private PurpleUserRepository purpleUserRepo;
+	private HayasakuUserRepository HayasakuUserRepo;
 	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
@@ -42,9 +42,9 @@ public class RegisterController {
 	}
 	
 	@PostMapping(value = {"", "/"})
-	public String postRegister(Model model, @ModelAttribute PurpleUser pu, @RequestParam String confirm_password, RedirectAttributes redirectAttributes) {
+	public String postRegister(Model model, @ModelAttribute HayasakuUser pu, @RequestParam String confirm_password, RedirectAttributes redirectAttributes) {
 		pu.setEnabled(true);
-		pu.setAuthorities(Arrays.asList(PurpleRole.USER));
+		pu.setAuthorities(Arrays.asList(HayasakuRole.USER));
 		if(!confirm_password.equals(pu.getPassword())) {
 			System.out.println("PasswordMatch");
 			redirectAttributes.addFlashAttribute("error", "passworddonotmatch");
@@ -56,7 +56,7 @@ public class RegisterController {
 			return "redirect:/register";
 		}
 		pu.setPassword(passwordEncoder.encode(pu.getPassword()));
-		if(purpleUserRepo.existsByUsername(pu.getUsername())) {
+		if(HayasakuUserRepo.existsByUsername(pu.getUsername())) {
 			redirectAttributes.addFlashAttribute("error", "usernamealreadyused");
 			return "redirect:/register";
 		}
@@ -64,7 +64,7 @@ public class RegisterController {
 			redirectAttributes.addFlashAttribute("error", "emailinvalid");
 			return "redirect:/register";
 		}
-		if(purpleUserRepo.existsByEmail(pu.getEmail())) {
+		if(HayasakuUserRepo.existsByEmail(pu.getEmail())) {
 			redirectAttributes.addFlashAttribute("error", "emailalreadyused");
 			return "redirect:/register";
 		}
@@ -72,7 +72,7 @@ public class RegisterController {
 		pu.setAccountNonExpired(true);
 		pu.setAccountNonLocked(true);
 		pu.setCredentialsNonExpired(true);
-		purpleUserRepo.save(pu);
+		HayasakuUserRepo.save(pu);
 		return "redirect:/home";
 	}
 	

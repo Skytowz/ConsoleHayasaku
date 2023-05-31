@@ -13,7 +13,7 @@ document.querySelector("#profile-button").addEventListener("click", e => {
 	openModalProfile(document.querySelector('meta[name="currentUser:id"]')?.content);
 })
 
-document.querySelectorAll(".purpletag").forEach(tag => {
+document.querySelectorAll(".Hayasakutag").forEach(tag => {
 	tag.querySelectorAll(".rate").forEach(rate => {
 		rate.addEventListener('click', event => {
 			event.preventDefault();

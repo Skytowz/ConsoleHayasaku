@@ -1,6 +1,6 @@
 package com.hayasaku.console.model.dto.messages;
 
-import com.hayasaku.console.model.dto.PurpleUser;
+import com.hayasaku.console.model.dto.HayasakuUser;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * Entity MessagesUser
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Data
@@ -17,7 +17,7 @@ import lombok.EqualsAndHashCode;
 @Entity
 public class MessageUser extends Message {
 	@ManyToOne
-	private PurpleUser userDestination;
+	private HayasakuUser userDestination;
 	
 	@Override
 	public String getDestinationPath() {

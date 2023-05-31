@@ -118,33 +118,18 @@
 		    <scope>provided</scope>
 		</dependency>
 		
-		<!-- Connections to Gitlab -->
-		<dependency>
-	        <groupId>no.finn.unleash</groupId>
-	        <artifactId>unleash-client-java</artifactId>
-	        <version>4.1.0</version>
-	    </dependency>
-	    <dependency>
-		    <groupId>io.sentry</groupId>
-		    <artifactId>sentry-spring-boot-starter-jakarta</artifactId>
-		    <version>6.12.1</version>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/io.sentry/sentry -->
-		<dependency>
-		    <groupId>io.sentry</groupId>
-		    <artifactId>sentry-spring</artifactId>
-		    <version>6.12.1</version>
-		</dependency>
-		<dependency>
-		    <groupId>io.sentry</groupId>
-		    <artifactId>sentry-logback</artifactId>
-		    <version>5.1.1</version>
-		</dependency>
 		<!-- Monitoring -->
 		<dependency>
 			<groupId>io.micrometer</groupId>
 			<artifactId>micrometer-registry-prometheus</artifactId>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-oauth2-client -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-oauth2-client</artifactId>
+		</dependency>
+
+
 	</dependencies>
 	<build>
 		<plugins>

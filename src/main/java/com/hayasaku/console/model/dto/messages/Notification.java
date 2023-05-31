@@ -1,6 +1,6 @@
 package com.hayasaku.console.model.dto.messages;
 
-import com.hayasaku.console.model.dto.PurpleUser;
+import com.hayasaku.console.model.dto.HayasakuUser;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -9,7 +9,7 @@ import lombok.Data;
 
 /**
  * Entity Notification
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Entity
@@ -19,5 +19,5 @@ public class Notification {
     private Long id;
 	
 	@ManyToOne
-    private PurpleUser sender;
+    private HayasakuUser sender;
 }

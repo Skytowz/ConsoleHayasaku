@@ -8,7 +8,7 @@ import com.hayasaku.console.model.exceptions.rooms.RoomNotFoundException;
 
 /**
  * Advice servant a rediriger un utilisateur faisant face a l'exception "RoomNotFoundException" pour le rediriger vers la liste des rooms
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @ControllerAdvice

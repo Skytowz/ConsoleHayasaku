@@ -20,7 +20,7 @@ import com.hayasaku.console.model.dto.tags.TagCategory;
 
 /**
  * Controleurs pour la redirection vers la page de modification de profile
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Controller

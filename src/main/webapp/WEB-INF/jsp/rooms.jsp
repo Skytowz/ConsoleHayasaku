@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="style/pnp.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Purple and Pink - Rooms</title>
+<title>Hayasaku and Pink - Rooms</title>
 </head>
 <body>
 	<jsp:include page="/navbar"></jsp:include>
@@ -42,7 +42,7 @@
 								</div>
 							</div>
 							<footer class="card-footer">
-								<p class="card-footer-item"><span> Population : <b><c:out value="${room.purpleusers.size()}" /></b></span></p>
+								<p class="card-footer-item"><span> Population : <b><c:out value="${room.Hayasakuusers.size()}" /></b></span></p>
 								<form:form action="room" method="GET" class="card-footer-item">
 									<input type="hidden" name="roomname" value="<c:out value='${room.name}'/>" />
 									<p class="card-footer-item"><span><input type="submit" value="Go" class="button" /></span></p>
@@ -58,7 +58,7 @@
 		<div class="content has-text-centered">
 			<div class="columns">
 				<div class="column">
-					<p><strong>Purple And Pink</strong> by Ruendan <span class="icon is-small"><img src="https://flagicons.lipis.dev/flags/4x3/fr.svg"></span> ! The source code is licensed by nothing yet.</p>
+					<p><strong>Hayasaku And Pink</strong> by Ruendan <span class="icon is-small"><img src="https://flagicons.lipis.dev/flags/4x3/fr.svg"></span> ! The source code is licensed by nothing yet.</p>
 				</div>
 				<div class="column is-2">
 					<figure class="image"><img class="is-pulled-right" src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24"></figure>

@@ -5,7 +5,7 @@ import lombok.EqualsAndHashCode;
 
 /**
  * Exception RoomNotFoundException renvoyée lorsque l'on essaye d'accéder a une Room qui n'existe pas
- * @author Quentin "Ruendan" DUBOIS
+ * @author Lucas "Skytowz" HOTTIN
  *
  */
 @Data
