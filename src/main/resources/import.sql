@@ -1,0 +1,76 @@
+INSERT INTO room(name, official, rules) VALUES ('rp', 'TRUE', 'In the RP Room, things are like they shouldnt be ~');		
+INSERT INTO room(name, official, rules) VALUES ('lsb', 'TRUE', 'Here is the lsb room. You know, h x h');
+INSERT INTO room(name, official, rules) VALUES ('ro', 'TRUE', 'Ro ? Wtf ?');
+INSERT INTO room(name) VALUES ('a');
+INSERT INTO room(name) VALUES ('b');
+INSERT INTO room(name) VALUES ('c');
+INSERT INTO room(name) VALUES ('d');
+INSERT INTO room(name) VALUES ('<script>alert("G reussi a Injecter mon script parce que c pas secu")</script>');
+
+INSERT INTO purple_user(username, password, email) VALUES ('rurue','{noop}rurue','rurue@rurue.com');
+INSERT INTO purple_user(username, password, email) VALUES ('ruru','{noop}ruru','ruru@ruru.com');
+
+INSERT INTO PURPLE_USER_FRIENDS(purple_user_id, friends_id) VALUES (1, 2);
+INSERT INTO PURPLE_USER_FRIENDS(purple_user_id, friends_id) VALUES (2, 1);
+
+INSERT INTO purple_user_authorities(purple_user_id, authorities) VALUES (1, 'ADMIN');
+
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'FEATURE', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'ACCOUNT', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'ACCOUNT', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'ACCOUNT', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'FEATURE', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'ACCOUNT', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'OTHER', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'ACCOUNT', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'ACCOUNT', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'OTHER', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'FEATURE', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'ACCOUNT', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'FEATURE', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'HELP', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'ACCOUNT', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'FEATURE', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'HELP', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'HELP', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'HELP', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'OTHER', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'OTHER', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+INSERT INTO suggestion(author, category, title, content) VALUES ('ruendan', 'BUG', 'Y a un bug', 'Alors y a un bug quand on...');
+
+INSERT INTO tag_category(name, color, intensity) VALUES ('Vanilla','', 1);
+INSERT INTO tag_category(name, color, intensity) VALUES ('Soft','info', 2);
+INSERT INTO tag_category(name, color, intensity) VALUES ('Medium','success', 3);
+INSERT INTO tag_category(name, color, intensity) VALUES ('Kinky','danger', 4);
+INSERT INTO tag_category(name, color, intensity) VALUES ('Hard','dark', 5);
+
+INSERT INTO tag(name, tag_category_id) VALUES('Redacted1', 1),('Redacted2', 1),('Redacted3', 1),('Redacted4', 2),('Redacted5', 2),('Redacted6', 2),('Redacted7', 3),('Redacted7', 3),('Redacted7', 3),('Redacted7', 3),('Redacted8', 3),('Redacted9', 3),('Redacted10', 3),('Redacted11', 4),('Redacted12', 4),('Redacted13', 4),('Redacted14', 5),('Redacted15', 5);

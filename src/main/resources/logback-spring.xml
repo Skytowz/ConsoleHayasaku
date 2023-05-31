@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<statusListener class="ch.qos.logback.core.status.NopStatusListener" />
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+       <encoder>
+            <pattern>[%d{dd-MM-yyyy hh:mm:ss}] [%-5level] %logger : %msg%n</pattern>
+       </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>purplenpink.log</file>
+	    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+	        <fileNamePattern>logs/purplenpink-%d{dd-MM-yyyy}.log</fileNamePattern>
+	        <totalSizeCap>3GB</totalSizeCap>
+	    </rollingPolicy>
+        <append>true</append>
+        <encoder>
+            <pattern>[%d{dd-MM-yyyy hh:mm:ss}] [%-5level] %logger : %msg%n</pattern>
+        </encoder>
+    </appender>
+
+	<logger name="ch.qos.logback" level="warn" />
+	<logger name="com.zaxxer.hikari" level="warn" />
+	<logger name="org.hibernate" level="warn" />
+
+	<logger name="org.apache.coyote" level="warn" />
+	<logger name="org.apache.catalina" level="warn" />
+	<logger name="org.apache.jasper" level="warn" />
+
+	<logger name="org.springframework.beans" level="warn" />
+	<logger name="org.springframework.aop" level="warn" />
+	<logger name="org.springframework.data" level="warn" />
+	<logger name="org.springframework.boot" level="warn" />
+	<logger name="org.springframework.orm" level="warn" />
+	<logger name="org.springframework.context" level="warn" />
+	<logger name="org.springframework.jmx" level="warn" />
+	<logger name="org.springframework.messaging" level="warn" />
+	
+	
+	<logger name="io.sentry.spring.jakarta.SentryUserFilter" level="warn" />
+	<logger name="io.sentry.spring.jakarta.SentrySpringFilter" level="warn" />
+	<logger name="io.sentry.spring.jakarta.tracing.SentryTracingFilter" level="warn" />
+	
+	<logger name="org.springframework.core.env.PropertySourcesPropertyResolver" level="warn" />
+	
+	<logger name="org.springframework.web" level="warn" />
+	<logger name="_org.springframework.web.servlet" level="warn" />
+	<logger name="org.springframework.web.SimpLogging" level="warn" />
+	<logger name="org.springframework.web.socket.messaging.WebSocketAnnotationMethodMessageHandler" level="warn" />
+	<logger name="org.springframework.web.socket.server.support.WebSocketHandlerMapping" level="warn" />
+	<logger name="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" level="warn" />
+	<logger name="org.springframework.web.servlet.DispatcherServlet" level="warn" />
+	<logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" level="warn" />
+	<logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" level="warn" />
+	<logger name="org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver" level="warn" />
+	<logger name="org.springframework.web.servlet.view.JstlView" level="warn" />
+	<logger name="org.springframework.web.servlet.view.ContentNegotiatingViewResolver" level="warn" />
+	<logger name="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" level="warn" />
+	<logger name="org.springframework.web.filter.ServerHttpObservationFilter" level="warn" />
+	
+	<logger name="org.springframework.security.web.DefaultSecurityFilterChain" level="warn" />
+	<logger name="org.springframework.security.web.DefaultRedirectStrategy" level="warn" />
+	<logger name="org.springframework.security.web.authentication.AnonymousAuthenticationFilter" level="warn" />
+	<logger name="org.springframework.security.web.authentication.DelegatingAuthenticationEntryPoint" level="warn" />
+	<logger name="org.springframework.security.web.savedrequest.HttpSessionRequestCache" level="warn" />
+	
+	<!-- Si on veut voir toutes les requêtes http, commentez la ligne si dessous -->
+	<logger name="org.springframework.security.web.FilterChainProxy" level="warn" />
+
+	<logger name="org.springframework.ui.context.support.UiApplicationContextUtils" level="warn" />
+	<logger name="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor" level="warn" />
+	<logger name="org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler" level="warn" />
+
+    <root level="debug">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>

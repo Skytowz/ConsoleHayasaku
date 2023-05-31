@@ -1,0 +1,10 @@
+target/*
+*.class
+/target/
+application.properties
+.settings/*
+.factorypath
+.project
+*.log
+/logs
+.classpath
