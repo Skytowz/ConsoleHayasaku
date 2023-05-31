@@ -6,9 +6,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.stereotype.Service;
 
-import com.hayasaku.console.model.dto.HayasakuUser;
-import com.hayasaku.console.model.service.user.HayasakuUserService;
-
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -20,8 +17,6 @@ import jakarta.servlet.http.HttpServletResponse;
 @Service
 public class HayasakuLogoutHandler implements LogoutHandler {
 	
-	@Autowired
-	private HayasakuUserService userService;
 	
 	@Autowired
 	private Log logger;
@@ -29,8 +24,6 @@ public class HayasakuLogoutHandler implements LogoutHandler {
     @Override
     public void logout(HttpServletRequest request, HttpServletResponse response, 
       Authentication authentication) {
-    	HayasakuUser user = (HayasakuUser) authentication.getPrincipal();
-    	logger.warn("Disconnecting User : " + user.getUsername());
-        userService.disconnect(user);
+    	
     }
 }

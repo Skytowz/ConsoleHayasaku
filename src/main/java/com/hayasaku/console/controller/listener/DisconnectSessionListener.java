@@ -7,9 +7,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import com.hayasaku.console.model.dto.HayasakuUser;
-import com.hayasaku.console.model.service.user.HayasakuUserService;
-
 import jakarta.servlet.http.HttpSessionEvent;
 import jakarta.servlet.http.HttpSessionListener;
 
@@ -20,9 +17,6 @@ import jakarta.servlet.http.HttpSessionListener;
  */
 @Configuration
 public class DisconnectSessionListener {
-	
-	@Autowired
-	private HayasakuUserService userService;
 	
 	@Autowired
 	private Log logger;
@@ -38,9 +32,7 @@ public class DisconnectSessionListener {
 		     @Override
 		     public void sessionDestroyed(HttpSessionEvent se) {
 		    	 Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-		    	 if(authentication == null || authentication.getPrincipal() == null || !(authentication.getDetails() instanceof HayasakuUser)) return;
-		    	 HayasakuUser userToDisconnect = (HayasakuUser) authentication.getDetails();
-		    	 userService.disconnect(userToDisconnect);
+
 		     }
 		 };
 	}
