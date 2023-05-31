@@ -21,10 +21,10 @@ jobs:
         distribution: 'temurin'
 
     - name: Build
-      run: mvn -B build --file pom.xml
+      run: mvn -B compile
     - name: Tests
-      run: mvn -B test --file pom.xml
+      run: mvn -B test
     - name: Edit Version to Latests
-      run: mvn -B versions:set -DnewVersion="latest" --file pom.xml
+      run: mvn -B versions:set -DnewVersion="latest"
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn -B spring-boot:build-image -Denv.CI_PROJECT="hayasaku.console" -DskipTests --file pom.xml
+      run: mvn -B spring-boot:build-image -Denv.CI_PROJECT="hayasaku.console" -DskipTests
