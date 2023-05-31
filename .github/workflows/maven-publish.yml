@@ -27,4 +27,4 @@ jobs:
     - name: Edit Version to Latests
       run: mvn -B versions:set -DnewVersion="latest"
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn -B spring-boot:build-image -Denv.CI_PROJECT="hayasaku.console" -DskipTests
+      run: mvn -B spring-boot:build-image -Denv.CI_PROJECT="hayasaku.console" -DskipTests -Denv.CI_REGISTRY="https://ghcr.io"

@@ -139,7 +139,7 @@
 				<configuration>
 					<excludeDevtools>false</excludeDevtools>
 					<image>
-						<name>${env.CI_REGISTRY}/ruendan/${project.artifactId}:${project.version}</name>
+						<name>${env.CI_REGISTRY}/${env.CI_PROJECT}/${project.artifactId}:${project.version}</name>
 						<publish>true</publish>
 					</image>
 					<docker>
