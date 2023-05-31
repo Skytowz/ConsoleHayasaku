@@ -6,7 +6,7 @@ name: Maven Package
 on: [push]
 
 jobs:
-  build:
+  push-to-container:
     runs-on: ubuntu-latest
     permissions:
       contents: read
