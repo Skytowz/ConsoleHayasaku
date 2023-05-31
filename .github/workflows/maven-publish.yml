@@ -26,5 +26,7 @@ jobs:
       run: mvn -B test
     - name: Edit Version to Latests
       run: mvn -B versions:set -DnewVersion="latest"
+    - name: Authent to Github Docker Registry
+      run: docker login -u publisher -p ${DOCKER_TOKEN} ghcr.io
     - name: Publish to GitHub Packages Apache Maven
-      run: mvn -B spring-boot:build-image -Denv.CI_PROJECT="hayasaku.console" -DskipTests -Denv.CI_REGISTRY="https://ghcr.io"
+      run: mvn -B spring-boot:build-image -Denv.CI_PROJECT="hayasaku.console" -DskipTests -Denv.CI_REGISTRY="ghcr.io"
