@@ -48,4 +48,4 @@ By following this security policy and adopting secure coding practices, we can c
 
 Thank you for your cooperation and commitment to security.
 
-**Project Maintainers**
+**Lucas "Skytowz" HOTTIN**
