@@ -1,0 +1,67 @@
+@charset "ISO-8859-1";
+@import url("variables.css");
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #363636;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(180deg, var(--scrollbar-gradiant-1) 0%, var(--scrollbar-gradiant-2) 99%);
+  box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+  border-radius: 100px;
+}
+
+body, .modal-card-body {
+	background-color: var(--bg-color)!important;
+}
+
+#navbar, .navbar-dropdown {
+	background-color: var(--navbar-color)!important;
+}
+
+.navbar-item {
+	color: white!important;
+}
+
+.navbar-item:hover {
+	background-color: var(--side-menu-color)!important;
+}
+
+#side-menu {
+	background-color: var(--side-menu-color)!important;
+}
+
+.box, .card, .card-footer, .card-content, .modal-card-head {
+	background-color: var(--box-color)!important;
+}
+
+.button {
+	background-color: var(--default-button-color)!important;
+}
+.tabs li a{
+	border-bottom-color: var(--navbar-color);
+}
+
+.panel-block{
+	border-bottom-color: var(--navbar-color)!important;
+}
+
+.room-panel-block:not(:first-child):hover{
+	background-color: var(--box-color)!important;
+}
+
+.footer {
+	background-color: var(--box-color)!important;
+}
+
+.main-content{
+	margin-bottom: 0px!important;
+}
+
+input[type="text"] {
+	background-color: var(--bg-color);
+}

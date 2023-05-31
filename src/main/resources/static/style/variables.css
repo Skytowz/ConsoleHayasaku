@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+/*
+	#7B2869
+	#9B3C72
+	#C85C8E
+	#FFBABA
+*/
+:root {
+	/* Main Colors*/
+	--bg-color: #313338;
+	--navbar-color: #2B2D31;
+	--box-color: #F3CEE0;
+	--scrollbar-gradiant-1: #37153D;
+	--scrollbar-gradiant-2:#D67AB1;
+	
+	--link-color:brown;
+	--warning-color:brown;
+	--info-color:brown;
+	--danger-color:brown;
+	--danger-color:brown;
+	--success-color:brown;
+	
+	/* Button Color */
+	--icon-color:brown;
+	--default-button-color: #D67AB1;
+}
