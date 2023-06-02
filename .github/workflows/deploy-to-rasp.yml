@@ -1,0 +1,26 @@
+name: Deploy to Remote Server
+
+on:
+  push:
+    branches:
+      - develop
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.0
+        with:
+          ssh-private-key: ${{ secrets.RASP_SSH_KEY }}
+
+      - name: Copy code to remote server
+        run: scp -r . lucas-rasp@62.34.161.92:~/console -p 2048
+
+      - name: Run script on remote server
+        run: ssh lucas-rasp@62.34.161.92 -p 2048 "cd ~/console && mvn spring-boot:run"
