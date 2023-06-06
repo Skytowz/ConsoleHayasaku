@@ -1,5 +1,6 @@
 package com.hayasaku.console.config.security;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -15,6 +16,10 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class HayasakuSecurityConfigurer{
 	
+	@Autowired
+    public DiscordAuthenticationSuccessHandler discordAuthenticationSuccessHandler;
+
+	
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		DelegatingPasswordEncoder res = (DelegatingPasswordEncoder) PasswordEncoderFactories
@@ -26,15 +31,26 @@ public class HayasakuSecurityConfigurer{
     public SecurityFilterChain filterChain(HttpSecurity http, ClientRegistrationRepository clientRegistrationRepository) throws Exception {
         String base_uri = OAuth2AuthorizationRequestRedirectFilter.DEFAULT_AUTHORIZATION_REQUEST_BASE_URI;
         DefaultOAuth2AuthorizationRequestResolver resolver = new DefaultOAuth2AuthorizationRequestResolver(clientRegistrationRepository, base_uri);
-        resolver.setAuthorizationRequestCustomizer (OAuth2AuthorizationRequestCustomizers.withPkce ( ) ) ;
-        
+        resolver.setAuthorizationRequestCustomizer (OAuth2AuthorizationRequestCustomizers.withPkce () ) ;
         http
             .authorizeHttpRequests()
                 .anyRequest().authenticated()
-                .and()
-            .oauth2Login()
-             	.authorizationEndpoint().authorizationRequestResolver(resolver);
-        return http.build();
+            .and()
+            	.csrf()
+				.ignoringRequestMatchers((request) -> request.getRequestURL().toString().contains("/h2-console/"))
+			.and()
+				.headers()
+				.frameOptions().sameOrigin()
+            .and()
+            	.oauth2Login()
+            	.loginPage("/oauth2/authorization/discord")
+             	.authorizationEndpoint().authorizationRequestResolver(resolver)
+         	.and()
+         		.successHandler(discordAuthenticationSuccessHandler)
+         	.and()
+         		.logout().logoutUrl("/logout");
+     	return http.build();
     }
-
+    
+    
 }

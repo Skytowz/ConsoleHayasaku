@@ -21,7 +21,7 @@ public class ApplicationReadyListener {
 
 	@Value("${server.port}")
 	private String port;
-
+	
 	@EventListener(ApplicationReadyEvent.class)
 	public void doSomethingAfterStartup() {
 		logger.info("Hayasaku Informations Check");

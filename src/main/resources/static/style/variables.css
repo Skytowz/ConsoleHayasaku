@@ -24,4 +24,6 @@
 	/* Button Color */
 	--icon-color:brown;
 	--default-button-color: #D67AB1;
+	
+	--danger-color: #DB143C;
 }

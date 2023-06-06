@@ -4,6 +4,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttribute;
+
+import com.hayasaku.console.entity.DiscordUser;
 
 /**
  * Controleurs pour la redirections vers les liens de la navbar
@@ -12,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  */
 @Controller
 public class MoreController {
-
+	
 	@GetMapping(value = {"navbar","/navbar"})
-	public String getNavbar(Model model, @RequestParam(required = false) String error) {
+	public String getNavbar(Model model, @RequestParam(required = false) String error, @SessionAttribute DiscordUser user) {
 		return "navbar";
 	}
 

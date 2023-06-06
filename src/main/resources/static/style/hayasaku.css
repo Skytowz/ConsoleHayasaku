@@ -17,10 +17,14 @@
 
 body, .modal-card-body {
 	background-color: var(--bg-color)!important;
+	min-height: 100vh
 }
 
 #navbar, .navbar-dropdown {
 	background-color: var(--navbar-color)!important;
+}
+.navbar-image{
+	padding: 0.5rem;
 }
 
 .navbar-item {
@@ -39,9 +43,6 @@ body, .modal-card-body {
 	background-color: var(--box-color)!important;
 }
 
-.button {
-	background-color: var(--default-button-color)!important;
-}
 .tabs li a{
 	border-bottom-color: var(--navbar-color);
 }
@@ -64,4 +65,30 @@ body, .modal-card-body {
 
 input[type="text"] {
 	background-color: var(--bg-color);
+}
+
+
+.is-hover-up:hover {
+	transfom: translate(0,-5px);
+}
+
+.is-hover-darker:hover {
+	filter: brightness(85%);
+}
+
+.is-clickable {
+	cursor: pointer;
+}
+
+.has-background-discord {
+	background-color: var(--bg-color)!important;
+}
+
+.has-border-danger{
+	border-color: var(--danger-color)!important;
+	border: solid 1px;
+}
+
+input[disabled="disabled"] {
+	text-color: #B5B5B5!important;
 }
