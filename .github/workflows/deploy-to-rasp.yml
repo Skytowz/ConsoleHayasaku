@@ -16,12 +16,17 @@ jobs:
         run: |
           echo "HAS_PASSWORD=${{ secrets.RASPBERRY_PI_PASSWORD != '' }}" >> $GITHUB_ENV
           
+      - name: Create temporary directory
+        id: tempdir
+        run: |
+          echo "::set-output name=dir::$(mktemp -d)"
+          
       - name: Create tarball
-        run: tar czf code.tar.gz .
+        run: tar czf ${{ steps.tempdir.outputs.dir }}/code.tar.gz .
         
       - name: Copy code to remote server
         run: |
-          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} scp -P 2048 -o StrictHostKeyChecking=no -r code.tar.gz lucas-rasp@62.34.161.92:/home/lucas-rasp/Console/
+          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} scp -P 2048 -o StrictHostKeyChecking=no -r ${{ steps.tempdir.outputs.dir }}/code.tar.gz lucas-rasp@62.34.161.92:/home/lucas-rasp/Console/
         if: env.HAS_PASSWORD
         
       - name: Extract code on Raspberry Pi
@@ -29,7 +34,7 @@ jobs:
           sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} \
           ssh -p 2048 -o StrictHostKeyChecking=no \
           username@your_raspberry_pi_ip_address \
-          'tar xzf/home/lucas-rasp/Console/code.tar.gz -C /home/lucas-rasp/Console/'
+          'tar xzf /home/lucas-rasp/Console/code.tar.gz -C /home/lucas-rasp/Console/'
         if: env.HAS_PASSWORD
         
         
