@@ -33,7 +33,7 @@ jobs:
         run: |
           sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} \
           ssh -p 2048 -o StrictHostKeyChecking=no \
-          username@your_raspberry_pi_ip_address \
+          lucas-rasp@62.34.161.92 \
           'tar xzf /home/lucas-rasp/Console/code.tar.gz -C /home/lucas-rasp/Console/'
         if: env.HAS_PASSWORD
         
