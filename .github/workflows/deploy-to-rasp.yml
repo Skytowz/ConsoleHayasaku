@@ -17,7 +17,7 @@ jobs:
           echo "HAS_PASSWORD=${{ secrets.RASPBERRY_PI_PASSWORD != '' }}" >> $GITHUB_ENV
       - name: Copy code to remote server
         run: |
-          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} scp -P 2048 -o StrictHostKeyChecking=no -r . lucas-rasp@62.34.161.92:/home/lucas-rasp/Console/.
+          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} scp -P 2048 -o StrictHostKeyChecking=no -r ./ lucas-rasp@62.34.161.92:/home/lucas-rasp/Console/.
         if: env.HAS_PASSWORD
       - name: Run script on remote server
         run: 
