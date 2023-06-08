@@ -29,5 +29,9 @@ public class CommandService {
 	public Manga saveManga(Manga manga) {
 		return mangaRepository.save(manga);
 	}
+
+	public boolean exist(String guildId, String command) {
+		return false;
+	}
 	
 }

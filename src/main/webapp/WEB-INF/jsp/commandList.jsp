@@ -31,6 +31,14 @@
 				<h2 class="title is-2 has-text-white">Select category</h2>
 				<div class="columns is-flex is-justify-content-center">
 					<div class="column is-two-thirds">
+						<c:if test="${ not empty error }">
+							<div class="box has-background-discord has-border-danger has-text-white"><c:out value="${ error }"></c:out></div>
+						</c:if>
+						<form:form name="guild" method="get" action="/guild/${ currentGuild.id }/${ type.typeName.toLowerCase() }/new">
+							<div class="box has-background-link is-hover-darker is-clickable is-hover-up mt-3 submit-form">
+								<p class="is-size-4 has-text-white has-text-centered">Nouveau</p>
+							</div>
+						</form:form>
 						<c:if test="${ not empty commands }">
 							<c:forEach items="${ commands }" var="command">
 								<form:form name="guild" method="get" action="/guild/${ currentGuild.id }/${ type.typeName.toLowerCase() }/${ command.commandId }/${ command.name.toLowerCase() }">
@@ -41,7 +49,6 @@
 								</form:form>
 							</c:forEach>
 						</c:if>
-
 					</div>
 				</div>
 			</section>

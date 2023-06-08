@@ -10,8 +10,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(180deg, var(--scrollbar-gradiant-1) 0%, var(--scrollbar-gradiant-2) 99%);
-  box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+  background-color: #1A1B1E;
   border-radius: 100px;
 }
 
@@ -19,6 +18,7 @@ body, .modal-card-body {
 	background-color: var(--bg-color)!important;
 	min-height: 100vh
 }
+
 
 #navbar, .navbar-dropdown {
 	background-color: var(--navbar-color)!important;
@@ -89,6 +89,10 @@ input[type="text"] {
 	border: solid 1px;
 }
 
-input[disabled="disabled"] {
-	text-color: #B5B5B5!important;
+input[disabled] {
+	color: #B5B5B5!important;
+}
+
+::placeholder {
+  color: #DBDBDB;
 }

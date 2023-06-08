@@ -16,6 +16,7 @@
 <script type="text/javascript" src="/scripts/global.js" defer></script>
 <script type="text/javascript" src="/scripts/mangaDetail.js" defer></script>
 
+
 </head>
 <body class="is-fullheight">
 	<jsp:include page="/navbar"></jsp:include>
@@ -26,11 +27,18 @@
 			    <li><a class="has-text-white" href="/home">Home</a></li>
 			    <li><a class="has-text-white" href="/guild/<c:out value="${ currentGuild.id	 }"/>"><c:out value="${ currentGuild.name }"></c:out> </a></li>
 			    <li><a class="has-text-white" href="/guild/<c:out value="${ currentGuild.id	 }"/>/manga">Manga</a></li>
-			    <li><a class="has-text-white" href="#"><c:out value="${ manga.name }"/></a></li>
+			    <c:choose>
+			    	<c:when test="${ mode eq  'update' }">
+					    <li><a class="has-text-white" href="#"><c:out value="${ manga.name }"/></a></li>
+			    	</c:when>
+			    	<c:when test="${ mode eq  'create' }">
+					    <li><a class="has-text-white" href="#">Nouveau</a></li>
+			    	</c:when>
+			    </c:choose>
 			  </ul>
 			</nav>
 			<section class="container">
-				<h2 class="title is-2 has-text-white"><c:out value="${ manga.name }"/></h2>
+				<h2 class="title is-2 has-text-white"><c:out value="${ empty manga.name ? 'Nouveau' : manga.name }"/></h2>
 				<div class="columns is-flex is-justify-content-center">
 					<div class="column is-two-thirds">
 						<c:if test="${ not empty error }">
@@ -46,7 +54,7 @@
 									<label class="label has-text-white has-text-centered">Nom</label>
 									<div class="columns">
 										<div class="control column is-two-thirds is-offset-2">
-									    	<input disabled="disabled" class="input has-text-light has-background-discord" type="text" placeholder="Nom" name="name" value="<c:out value="${ manga.name }"/>"/>
+									    	<input <c:if test='${ mode ne "create"}'><c:out value="disabled='disabled'"/></c:if> class="input has-text-light has-background-discord" type="text" placeholder="Nom" name="name" value="<c:out value="${ manga.name }"/>"/>
 										</div>
 									</div>
 								</div>
@@ -54,7 +62,7 @@
 									<label class="label has-text-white has-text-centered">Description</label>
 									<div class="columns">
 										<div class="control column is-two-thirds is-offset-2">
-									    	<input disabled="disabled" class="input has-text-light has-background-discord" type="text" placeholder="Description" name="help" value="<c:out value="${ manga.help }"/>"/>
+									    	<input <c:if test='${ mode ne "create"}'><c:out value="disabled='disabled'"/></c:if> class="input has-text-light has-background-discord" type="text" placeholder="Description" name="help" value="<c:out value="${ manga.help }"/>"/>
 										</div>
 									</div>
 								</div>
@@ -62,22 +70,32 @@
 									<label class="label has-text-white has-text-centered">ID Mangadex</label>
 									<div class="columns">
 										<div class="control column is-two-thirds is-offset-2">
-									    	<input disabled="disabled" class="input has-text-light has-background-discord" type="text" placeholder="ID Mangadex" name="idManga" value="<c:out value="${ manga.idManga }"/>"/>
+									    	<input <c:if test='${ mode ne "create"}'><c:out value="disabled='disabled'"/></c:if> class="input has-text-light has-background-discord" type="text" placeholder="ID Mangadex" name="idManga" value="<c:out value="${ manga.idManga }"/>"/>
 										</div>
 									</div>
 								</div>
 								<div class="block has-background-discord">
 									<label class="label has-text-white has-text-centered">Commande</label>
-									<div class="columns is-flex is-flex-direction-column">
-										<c:choose>
-											<c:when test="${ not empty manga.caller }">
-												<c:forEach items="${ manga.caller }" var="caller">
+									<c:choose>
+										<c:when test="${ not empty manga.caller }">
+											<c:forEach items="${ manga.caller }" var="caller">
+												<div class="columns">
 													<div class="control column is-two-thirds is-offset-2 pb-0">
-														<input disabled="disabled" class="input has-text-light has-background-discord is-two-fifth" type="text" placeholder="Commande" name="caller" value="<c:out value="${ caller }"/>"/>
+														<input <c:if test='${ mode ne "create"}'><c:out value="disabled='disabled'"/></c:if> class="input has-text-light has-background-discord is-two-fifth" type="text" placeholder="Commande" name="caller" value="<c:out value="${ caller }"/>"/>
 													</div>
-												</c:forEach>
-											</c:when>
-										</c:choose>
+													<div class="column is-flex is-flex-direction-column is-justify-content-center pb-0 <c:if test='${ mode ne "create"}'><c:out value="is-hidden"/></c:if> remove-command">
+														<span class="icon">
+															<i class="fas fa-times has-text-danger is-clickable"></i>
+														</span>
+													</div>
+												</div>
+											</c:forEach>
+										</c:when>
+									</c:choose>
+									<div class="columns <c:if test='${ mode ne "create"}'><c:out value="is-hidden"/></c:if>">
+										<span class="icon column is-offset-2" id="add-command">
+											<i class="fas fa-plus is-clickable"></i>
+										</span>
 									</div>
 								</div>
 							</div>
@@ -101,5 +119,17 @@
 			</section>
 		</main>
 	</section>
+	<template id="template-command">
+		<div class="columns">
+			<div class="control column is-two-thirds is-offset-2 pb-0">
+				<input class="input has-text-light has-background-discord is-two-fifth" type="text" placeholder="Commande" name="caller"/>
+			</div>
+			<div class="column is-flex is-flex-direction-column is-justify-content-center pb-0 remove-command">
+				<span class="icon">
+					<i class="fas fa-times has-text-danger is-clickable"></i>
+				</span>
+			</div>
+		</div>
+	</template>
 </body>
 </html>
