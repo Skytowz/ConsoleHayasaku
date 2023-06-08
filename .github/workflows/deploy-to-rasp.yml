@@ -18,7 +18,7 @@ jobs:
       - name: Copy code to remote server
         run: |
           sudo apt-get install sshpass -y
-          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} scp -o StrictHostKeyChecking=no -r . lucas-rasp@62.34.161.92:/home/lucas-rasp/Console -p 2048
+          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} scp -o StrictHostKeyChecking=no -r . lucas-rasp@62.34.161.92:/home/lucas-rasp/Console -P 2048
         if: env.HAS_PASSWORD
       - name: Run script on remote server
         run: 
