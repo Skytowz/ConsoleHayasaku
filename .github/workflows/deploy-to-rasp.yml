@@ -1,10 +1,9 @@
-name: Deploy to Remote Server
+name: Deploy Recette to Remote Server
 
 on:
   push:
     branches:
       - develop
-      - master
 
 jobs:
   deploy:
@@ -24,9 +23,9 @@ jobs:
       - name: Create tarball
         run: tar czf ${{ steps.tempdir.outputs.dir }}/code.tar.gz .
         
-      - name: Copy code to remote server
+      - name: Copy tarball to Raspberry Pi
         run: |
-          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} scp -P 2048 -o StrictHostKeyChecking=no -r ${{ steps.tempdir.outputs.dir }}/code.tar.gz lucas-rasp@62.34.161.92:/home/lucas-rasp/Console/
+          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} scp -P 2048 -o StrictHostKeyChecking=no -r ${{ steps.tempdir.outputs.dir }}/code.tar.gz lucas-rasp@62.34.161.92:/home/lucas-rasp/Console/recette/sources
         if: env.HAS_PASSWORD
         
       - name: Extract code on Raspberry Pi
@@ -34,11 +33,11 @@ jobs:
           sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} \
           ssh -p 2048 -o StrictHostKeyChecking=no \
           lucas-rasp@62.34.161.92 \
-          'tar xzf /home/lucas-rasp/Console/code.tar.gz -C /home/lucas-rasp/Console/'
+          'tar xzf /home/lucas-rasp/Console/recette/sources/code.tar.gz -C /home/lucas-rasp/Console/recette/sources'
         if: env.HAS_PASSWORD
         
         
-      - name: Run script on remote server
+      - name: Run script on Raspberry Pi
         run: |
-          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} ssh -o StrictHostKeyChecking=no lucas-rasp@62.34.161.92 -p 2048 'cd /home/lucas-rasp/Console && tmux send-keys -t Console "cd /home/lucas-rasp/Console && mvn clean install spring-boot:run" C-m'
+          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} ssh -o StrictHostKeyChecking=no lucas-rasp@62.34.161.92 -p 2048 'cd /home/lucas-rasp/Console/recette/sources && tmux send-keys -t Console-Recette "C-c && cp /home/lucas-rasp/Console/recette/props/applicaiton.properties /home/lucas-rasp/Console/recette/sources/src/main/resources/applicaiton.properties && cd /home/lucas-rasp/Console/recette/sources && mvn clean install spring-boot:run" C-m'
         if: env.HAS_PASSWORD
