@@ -37,7 +37,7 @@ public abstract class Command {
 	
 	public void setCaller(List<String> caller) {
 		if(caller == null) this.triggers = new ArrayList<>();
-		else this.triggers = caller.stream().map(call -> new CommandTrigger(call)).toList();
+		else this.triggers = caller.stream().map(call -> new CommandTrigger(call,this)).toList();
 	}
 
 }

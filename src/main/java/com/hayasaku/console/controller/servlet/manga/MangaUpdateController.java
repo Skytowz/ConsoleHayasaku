@@ -1,5 +1,7 @@
 package com.hayasaku.console.controller.servlet.manga;
 
+import java.util.List;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,15 +12,20 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.hayasaku.console.dto.CommandTrigger;
 import com.hayasaku.console.dto.Manga;
 import com.hayasaku.console.entity.DiscordUser;
 import com.hayasaku.console.service.CommandService;
+import com.hayasaku.console.service.DiscordService;
 
 @Controller
 public class MangaUpdateController {
 
 	@Autowired
 	CommandService commandService;
+	
+	@Autowired
+	DiscordService discordService;
 	
 	@PostMapping(value= "/guild/{guildId}/manga/update")
 	public String postManga(Model model, @SessionAttribute DiscordUser user, @PathVariable String guildId, @ModelAttribute Manga manga, RedirectAttributes redirectAttributes) {
@@ -44,15 +51,22 @@ public class MangaUpdateController {
 			redirectAttributes.addFlashAttribute("error","Il n'y a aucune commande correcte");
 			return "redirect:/guild/"+guildId+"/manga/"+oldManga.getCommandId()+"/"+oldManga.getName();
 		}
-		manga.setCaller(manga.getCaller().stream().filter(StringUtils::isNotBlank).toList());
+		manga.setCaller(manga.getCaller().stream().filter(StringUtils::isNotBlank).distinct().toList());
 		if(!manga.getCaller().stream().allMatch(StringUtils::isAllLowerCase)) {
 			redirectAttributes.addFlashAttribute("error","Les commandes doivent être impérativement en minuscule");
+			return "redirect:/guild/"+guildId+"/manga/"+oldManga.getCommandId()+"/"+oldManga.getName();
+		}
+		
+		List<CommandTrigger> newTrigger = manga.getTriggers().stream().filter(trigger -> !oldManga.getTriggers().contains(trigger)).toList();
+		if(commandService.triggerExistForGuild(guildId, newTrigger.stream().map(trigger -> trigger.getTrigger()).toList())) {
+			redirectAttributes.addFlashAttribute("error","Une des commandes existes déjà");
 			return "redirect:/guild/"+guildId+"/manga/"+oldManga.getCommandId()+"/"+oldManga.getName();
 		}
 		
 		String cmd = String.join("/",manga.getCaller())+" <chap> [page]";
 		manga.setCmd(cmd);
 		Manga newManga = commandService.saveManga(manga);
+		
 		return "redirect:/guild/"+guildId+"/manga/"+newManga.getCommandId()+"/"+newManga.getName();
 	}
  

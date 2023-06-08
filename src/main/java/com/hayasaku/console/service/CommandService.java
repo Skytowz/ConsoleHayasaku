@@ -2,9 +2,11 @@ package com.hayasaku.console.service;
 
 import java.util.List;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.hayasaku.console.dao.CommandRepository;
 import com.hayasaku.console.dao.MangaRepository;
 import com.hayasaku.console.dto.Manga;
 
@@ -13,6 +15,8 @@ public class CommandService {
 
 	@Autowired
 	private MangaRepository mangaRepository;
+	@Autowired
+	private CommandRepository commandRepository;
 	
 	public Iterable<Manga> findAllManga(){
 			return mangaRepository.findAll();
@@ -30,8 +34,8 @@ public class CommandService {
 		return mangaRepository.save(manga);
 	}
 
-	public boolean exist(String guildId, String command) {
-		return false;
+	public boolean triggerExistForGuild(String guildId, List<String> newTrigger) {
+		return !CollectionUtils.isEmpty(commandRepository.findByGuildIdAndTriggersIn(guildId, newTrigger)); 
 	}
 	
 }
