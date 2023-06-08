@@ -39,5 +39,5 @@ jobs:
         
       - name: Run script on Raspberry Pi
         run: |
-          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} ssh -o StrictHostKeyChecking=no lucas-rasp@62.34.161.92 -p 2048 'cd /home/lucas-rasp/Console/recette && tmux send-keys -t Console-Recette "C-c && cp /home/lucas-rasp/properties/recette/applicaiton.properties /home/lucas-rasp/Console/recette/src/main/resources/applicaiton.properties && cd /home/lucas-rasp/Console/recette && mvn clean install spring-boot:run" C-m'
+          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} ssh -o StrictHostKeyChecking=no lucas-rasp@62.34.161.92 -p 2048 'cd /home/lucas-rasp/Console/recette && tmux kill-session -t Console-Recette 2>&1 && tmux new -s Console-Recette && tmux send-keys -t Console-Recette "cp /home/lucas-rasp/properties/recette/applicaiton.properties /home/lucas-rasp/Console/recette/src/main/resources/applicaiton.properties && cd /home/lucas-rasp/Console/recette && mvn clean install spring-boot:run" C-m'
         if: env.HAS_PASSWORD
