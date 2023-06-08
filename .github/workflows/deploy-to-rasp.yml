@@ -13,13 +13,27 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Set up environment variables
-        run: 
+        run: |
           echo "HAS_PASSWORD=${{ secrets.RASPBERRY_PI_PASSWORD != '' }}" >> $GITHUB_ENV
+          
+      - name: Create tarball
+        run: tar czf code.tar.gz .
+        
       - name: Copy code to remote server
         run: |
-          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} scp -P 2048 -o StrictHostKeyChecking=no -r ./ lucas-rasp@62.34.161.92:/home/lucas-rasp/Console/.
+          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} scp -P 2048 -o StrictHostKeyChecking=no -r code.tar.gz lucas-rasp@62.34.161.92:/home/lucas-rasp/Console/
         if: env.HAS_PASSWORD
+        
+      - name: Extract code on Raspberry Pi
+        run: |
+          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} \
+          ssh -p 2048 -o StrictHostKeyChecking=no \
+          username@your_raspberry_pi_ip_address \
+          'tar xzf/home/lucas-rasp/Console/code.tar.gz -C /home/lucas-rasp/Console/'
+        if: env.HAS_PASSWORD
+        
+        
       - name: Run script on remote server
-        run: 
+        run: |
           sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} ssh -o StrictHostKeyChecking=no lucas-rasp@62.34.161.92 -p 2048 'cd /home/lucas-rasp/Console && tmux send-keys -d Console "mvn spring-boot:run" C-m'
         if: env.HAS_PASSWORD
