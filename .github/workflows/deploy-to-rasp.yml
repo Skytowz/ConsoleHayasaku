@@ -14,13 +14,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.5.0
-        with:
-          ssh-private-key: ${{ secrets.RASP_SSH_KEY }}
-
       - name: Copy code to remote server
-        run: scp -r . lucas-rasp@62.34.161.92:~/console -p 2048
-
+        run:
+          sudo apt-get install sshpass -y
+          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} scp -o StrictHostKeyChecking=no -r . lucas-rasp@62.34.161.92:/home/lucas-rasp/Console -p 2048
+        if: secrets.RASPBERRY_PI_PASSWORD
       - name: Run script on remote server
-        run: ssh lucas-rasp@62.34.161.92 -p 2048 "cd ~/console && mvn spring-boot:run"
+        run: 
+          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} ssh -o StrictHostKeyChecking=no lucas-rasp@62.34.161.92 -p 2048 'cd /home/lucas-rasp/Console && tmux send-keys -d Console "mvn spring-boot:run" C-m'
+        if: secrets.RASPBERRY_PI_PASSWORD
