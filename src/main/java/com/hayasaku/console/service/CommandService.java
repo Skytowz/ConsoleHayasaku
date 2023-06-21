@@ -10,6 +10,8 @@ import com.hayasaku.console.dao.MangaRepository;
 import com.hayasaku.console.dto.Command;
 import com.hayasaku.console.dto.Manga;
 
+import io.micrometer.core.annotation.Timed;
+
 @Service
 public class CommandService {
 
@@ -30,6 +32,7 @@ public class CommandService {
 		return mangaRepository.findById(idCommand);
 	}
 	
+	@Timed(value = "commandService.saveManga", description = "Time taken to save a Manga")
 	public Manga saveManga(Manga manga) {
 		return mangaRepository.save(manga);
 	}

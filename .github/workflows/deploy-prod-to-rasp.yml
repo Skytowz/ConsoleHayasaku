@@ -1,0 +1,43 @@
+name: Deploy Prod to Remote Server
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Set up environment variables
+        run: |
+          echo "HAS_PASSWORD=${{ secrets.RASPBERRY_PI_PASSWORD != '' }}" >> $GITHUB_ENV
+          
+      - name: Create temporary directory
+        id: tempdir
+        run: |
+          echo "::set-output name=dir::$(mktemp -d)"
+          
+      - name: Create tarball
+        run: tar czf ${{ steps.tempdir.outputs.dir }}/code.tar.gz .
+        
+      - name: Copy tarball to Raspberry Pi
+        run: |
+          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} scp -P 2048 -o StrictHostKeyChecking=no -r ${{ steps.tempdir.outputs.dir }}/code.tar.gz lucas-rasp@62.34.161.92:/home/lucas-rasp/Console/prod/
+        if: env.HAS_PASSWORD
+        
+      - name: Extract code on Raspberry Pi
+        run: |
+          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} \
+          ssh -p 2048 -o StrictHostKeyChecking=no \
+          lucas-rasp@62.34.161.92 \
+          'tar xzf /home/lucas-rasp/Console/prod/code.tar.gz -C /home/lucas-rasp/Console/prod && rm -f /home/lucas-rasp/Console/prod/code.tar.gz'
+        if: env.HAS_PASSWORD
+        
+        
+      - name: Run script on Raspberry Pi
+        run: |
+          sshpass -p ${{ secrets.RASPBERRY_PI_PASSWORD }} ssh -o StrictHostKeyChecking=no lucas-rasp@62.34.161.92 -p 2048 'cd /home/lucas-rasp/Console/prod && tmux kill-session -t Console-Prod || true && tmux new -s Console-Prod -d && tmux send-keys -t Console-Prod "cp /home/lucas-rasp/properties/prod/application.properties /home/lucas-rasp/Console/prod/src/main/resources/application.properties && cd /home/lucas-rasp/Console/prod && mvn clean install spring-boot:run" C-m'
+        if: env.HAS_PASSWORD
