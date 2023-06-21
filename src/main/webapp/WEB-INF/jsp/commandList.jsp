@@ -41,10 +41,10 @@
 						</form:form>
 						<c:if test="${ not empty commands }">
 							<c:forEach items="${ commands }" var="command">
-								<form:form name="guild" method="get" action="/guild/${ currentGuild.id }/${ type.typeName.toLowerCase() }/${ command.commandId }/${ command.name.toLowerCase() }">
+								<form:form name="guild" method="get" action="/guild/${ currentGuild.id }/${ type.typeName.toLowerCase() }/${ command.id }/${ command.name.toLowerCase() }">
 									<div class="box has-background-grey-darker is-hover-darker is-clickable is-hover-up mt-3 submit-form">
 										<p class="is-size-4 has-text-white has-text-centered"><c:out value="${ command.name } : "/></p>
-										<p class="is-size-6 has-text-white has-text-centered"><c:out value="${ command.help }"></c:out></p>
+										<p class="is-size-6 has-text-white has-text-centered"><c:out value="${ command.description }"></c:out></p>
 									</div>
 								</form:form>
 							</c:forEach>

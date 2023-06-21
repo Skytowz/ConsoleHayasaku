@@ -7,6 +7,8 @@ import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
 
+import com.hayasaku.console.service.DiscordService;
+
 
 /**
  * Listener du chargement de l'application afin d'effectuer des actions à son démarage
@@ -22,10 +24,14 @@ public class ApplicationReadyListener {
 	@Value("${server.port}")
 	private String port;
 	
+	@Autowired
+	private DiscordService discordService;
+	
 	@EventListener(ApplicationReadyEvent.class)
 	public void doSomethingAfterStartup() {
 		logger.info("Hayasaku Informations Check");
 		logger.info("");
 	    logger.info("Hayasaku Successfully Started on port %s".formatted(port));
+	    discordService.putAllCommand();
 	}
 }

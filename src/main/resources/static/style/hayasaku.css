@@ -47,14 +47,6 @@ body, .modal-card-body {
 	border-bottom-color: var(--navbar-color);
 }
 
-.panel-block{
-	border-bottom-color: var(--navbar-color)!important;
-}
-
-.room-panel-block:not(:first-child):hover{
-	background-color: var(--box-color)!important;
-}
-
 .footer {
 	background-color: var(--box-color)!important;
 }

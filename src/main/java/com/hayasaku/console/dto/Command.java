@@ -1,43 +1,41 @@
 package com.hayasaku.console.dto;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
-import jakarta.persistence.OneToMany;
 import lombok.Data;
 
 @Data
 @Entity
+@JsonDeserialize
 @Inheritance( strategy = InheritanceType.JOINED )
-public abstract class Command {
+public class Command {
 	
+	
+	@JsonProperty("id")
+	private String id;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long commandId;
+	@JsonIgnore
+	protected Long commandId;
+	@JsonProperty("guild_id")
 	protected String guildId;
+	@JsonIgnore
 	protected String name;
-	protected String help;
+	@JsonProperty("description")
+	protected String description;
+	@JsonIgnore
 	protected String cmd;
-	
-	@OneToMany(mappedBy = "commandId",fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-	protected List<CommandTrigger> triggers;
-	
-	public List<String> getCaller() {
-		if(triggers == null) return new ArrayList<>();
-		return triggers.stream().map(trigger -> trigger.getTrigger()).toList();
-	}
-	
-	public void setCaller(List<String> caller) {
-		if(caller == null) this.triggers = new ArrayList<>();
-		else this.triggers = caller.stream().map(call -> new CommandTrigger(call,this)).toList();
-	}
+	@JsonProperty("name")
+	protected String trigger;
+	@JsonProperty("type")
+	protected Long type;
 
 }

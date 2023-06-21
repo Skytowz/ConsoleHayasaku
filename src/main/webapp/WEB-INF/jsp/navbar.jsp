@@ -18,10 +18,12 @@
 </head>
 <body>
 	<nav id="navbar" class="navbar is-dark" role="navigation" aria-label="main navigation">
-		<div class="navbar-menu is-active">
+		<div class="navbar-menu">
 			<div class="navbar-start">
 				<a title="To Home" class="navbar-item" href="/home"><i class="fas fa-home"></i></a>
 			</div>
+		</div>
+		<div class="navbar-brand">
 			<div class="navbar-end">
 				<p class="navbar-item"><c:out value="${ user.username }"></c:out>
 				<figure class="navbar-image image is-48x48">

@@ -9,7 +9,7 @@ import lombok.Data;
 
 @Data
 @Entity
-@PrimaryKeyJoinColumn(name = "commandId")
+@PrimaryKeyJoinColumn(name = "command_id")
 public class guildCommand extends Command {
 	
 	private List<String> response;

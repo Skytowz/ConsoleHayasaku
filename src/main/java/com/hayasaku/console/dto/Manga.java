@@ -9,6 +9,5 @@ import lombok.Data;
 @Entity
 @PrimaryKeyJoinColumn(name = "command_id")
 public class Manga extends Command {
-
 	private String idManga;
 }

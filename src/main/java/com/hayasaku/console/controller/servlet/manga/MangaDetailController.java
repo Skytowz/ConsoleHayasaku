@@ -20,7 +20,7 @@ public class MangaDetailController {
 	CommandService commandService;
 	
 	@GetMapping(value = {"/guild/{guildId}/manga/{idCommand}/{mangaName}"})
-	public String getManga(Model model, @SessionAttribute DiscordUser user, @PathVariable Long idCommand, @ModelAttribute(name = "error") String error) {
+	public String getManga(Model model, @SessionAttribute DiscordUser user, @PathVariable String idCommand, @ModelAttribute(name = "error") String error) {
 		if(StringUtils.isNotBlank(error)) {
 			model.addAttribute("error", error);
 		}

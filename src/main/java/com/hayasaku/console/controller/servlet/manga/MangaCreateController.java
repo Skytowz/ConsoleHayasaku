@@ -27,7 +27,7 @@ public class MangaCreateController {
 			redirectAttributes.addFlashAttribute("error","Le nom n'est pas pas correct");
 			return "redirect:/guild/"+guildId+"/manga/new";
 		}
-		if(StringUtils.isBlank(manga.getHelp())) {
+		if(StringUtils.isBlank(manga.getDescription())) {
 			redirectAttributes.addFlashAttribute("error","La description n'est pas pas correcte");
 			return "redirect:/guild/"+guildId+"/manga/new";
 		}
@@ -35,13 +35,8 @@ public class MangaCreateController {
 			redirectAttributes.addFlashAttribute("error","L'ID Mangadex n'est pas pas correct");
 			return "redirect:/guild/"+guildId+"/manga/new";
 		}
-		if(manga.getCaller() == null || manga.getCaller().isEmpty() || !manga.getCaller().stream().anyMatch(StringUtils::isNotBlank)) {
-			redirectAttributes.addFlashAttribute("error","Il n'y a aucune commande correcte");
-			return "redirect:/guild/"+guildId+"/manga/new";
-		}
-		manga.setCaller(manga.getCaller().stream().filter(StringUtils::isNotBlank).toList());
-		if(!manga.getCaller().stream().allMatch(StringUtils::isAllLowerCase)) {
-			redirectAttributes.addFlashAttribute("error","Les commandes doivent être impérativement en minuscule");
+		if(StringUtils.isBlank(manga.getIdManga())) {
+			redirectAttributes.addFlashAttribute("error","Le trigger n'est pas correct");
 			return "redirect:/guild/"+guildId+"/manga/new";
 		}
 //		if(manga.getCaller().stream().anyMatch(call -> commandService.exist(guildId, call))) {
@@ -50,10 +45,10 @@ public class MangaCreateController {
 //		}
 		
 		
-		String cmd = String.join("/",manga.getCaller())+" <chap> [page]";
+		String cmd = manga.getTrigger()+" <chap> [page]";
 		manga.setCmd(cmd);
 		Manga newManga = commandService.saveManga(manga);
-		return "redirect:/guild/"+guildId+"/manga/"+newManga.getCommandId()+"/"+newManga.getName();
+		return "redirect:/guild/"+guildId+"/manga/"+newManga.getId()+"/"+newManga.getName();
 	}
  
 }
